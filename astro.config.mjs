@@ -15,7 +15,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tannisanta.github.io/inwriting',
-  base: '/inwriting/',
+  base: '/',
   output: 'static',
   integrations: [
     tailwind(),

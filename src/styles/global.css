@@ -133,10 +133,10 @@
 
   /* Layout utilities */
   .container-narrow {
-    @apply max-w-2xl mx-auto px-4;
+    @apply max-w-full mx-auto px-4;
   }
 
   .container-wide {
-    @apply max-w-7xl mx-auto px-4;
+    @apply max-w-full mx-auto px-4;
   }
 }

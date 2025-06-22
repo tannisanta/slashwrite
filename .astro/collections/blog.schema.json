@@ -72,7 +72,7 @@
         },
         "author": {
           "type": "string",
-          "default": "Gerrad Zhang"
+          "default": "Tetiana Tsakun"
         },
         "location": {
           "type": "string",

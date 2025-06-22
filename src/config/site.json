@@ -1,22 +1,22 @@
 {
   "site": {
-    "title": "Product WhoAmI",
-    "description": "Personal portfolio website combining blog functionality with product showcase capabilities",
-    "url": "https://i.zhangqingdong.cn",
-    "author": "Gerrad Zhang",
-    "location": "Wuhan, China",
-    "email": "gerrad.zhang@hotmail.com",
+    "title": "InWriting",
+    "description": "Personal portfolio website combining blog, professional showcase capabilities, and my hobbies",
+    "url": "https://tannisanta.github.io/inwriting/",
+    "author": "Tetiana Tsakun",
+    "location": "Warsaw, Poland",
+    "email": "tannisanta@gmail.com",
     "logo": "/logo.svg",
-    "homeTitle": "Product WhoAmI",
-    "homeSubtitle": "Welcome to my digital space. Discover my projects, read my thoughts on technology, and explore my professional journey.",
-    "blogSubtitle": "Insights, experiences, and knowledge sharing on technology, development, and innovation.",
-    "projectSubtitle": "A curated showcase of my personal projects, open source contributions, and product development journey.",
-    "brandTitle": "Gerrad Zhang"
+    "homeTitle": "Wonder in writing",
+    "homeSubtitle": "Welcome to my space. Here I share my work as a technical writer and my creative side—watercolor, photography, and other projects",
+    "blogSubtitle": "Insights, experiences, and knowledge sharing on technology, learning, creativity, and everything in between",
+    "projectSubtitle": "A curated showcase of my personal projects, writing, thoughts, work, and creativity",
+    "brandTitle": "Tetiana Tsakun"
   },
   "giscus": {
     "enabled": true,
-    "repo": "copyboy/whoami_blog_comment",
-    "repoId": "R_kgDOOl9Jtw",
+    "repo": "inwriting",
+    "repoId": "R_kgDOO_1i3A",
     "category": "General",
     "categoryId": "DIC_kwDOOl9Jt84Cp3pA",
     "mapping": "pathname",
@@ -40,8 +40,8 @@
     }
   },
   "social": {
-    "github": "https://github.com/copyboy",
-    "linkedin": "https://www.linkedin.com/in/gerrad-zhang-452a15216/"
+    "github": "https://github.com/tannisanta",
+    "linkedin": "https://www.linkedin.com/in/tetiana-tsakun/"
   },
   "features": {
     "darkMode": true,

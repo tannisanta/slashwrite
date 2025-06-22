@@ -7,9 +7,9 @@ describe('Config Utils', () => {
       const config = getSiteConfig();
       
       expect(config).toBeDefined();
-      expect(config.title).toBe('Product WhoAmI');
-      expect(config.description).toBe('Personal portfolio website combining blog functionality with product showcase capabilities');
-      expect(config.author).toBe('Gerrad Zhang');
+      expect(config.title).toBe('In writing I trust');
+      expect(config.description).toBe('Personal portfolio website combining blog functionality with professional showcase capabilities');
+      expect(config.author).toBe('Tetiana Tsakun');
     });
   });
 
