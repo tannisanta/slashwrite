@@ -14,7 +14,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://astro.build/config
 export default defineConfig({
-  site: inwriting.github.io,
+  site: tannisanta.github.io,
   integrations: [
     tailwind(),
     mdx({
