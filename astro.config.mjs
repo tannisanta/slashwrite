@@ -16,7 +16,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   site: 'https://tannisanta.github.io',
   base: '/inwriting/',
-  output: static,
+  output: 'static',
   integrations: [
     tailwind(),
     mdx({
