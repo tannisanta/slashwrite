@@ -3,6 +3,7 @@ import ThemeToggle from './ThemeToggle.astro';
 import Icon from './Icon.astro';
 import { getCollection } from 'astro:content';
 import { getSiteConfig, getSocialConfig } from '@utils/config';
+import { withBase } from '../utils/withBase';
 
 // Get all blog posts
 const blogPosts = await getCollection('blog', ({ data }) => {
@@ -35,6 +36,12 @@ const currentPath = Astro.url.pathname;
 
 // Helper function to determine if a link is active
 const base = import.meta.env.BASE_URL || '/inwriting/'; // or from your config
+const activeLinks = {
+  '/': isActiveLink('/'),
+  '/about': isActiveLink('/about'),
+  '/blog': isActiveLink('/blog'),
+  '/projects': isActiveLink('/projects'),
+};
 function isActiveLink(path: string) {
   const currentPath = Astro.url.pathname;
 
@@ -65,7 +72,7 @@ function isActiveCategory(categoryName: string): boolean {
       <h3 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold mb-3">Navigation</h3>
       <ul class="space-y-2">
         <li>
-          <a href="/" class:list={[
+          <a href={withBase('/')} class:list={[
             "flex items-center gap-2 p-2 rounded-lg transition-colors",
             isActiveLink('/') 
               ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
@@ -79,7 +86,7 @@ function isActiveCategory(categoryName: string): boolean {
           </a>
         </li>
         <li>
-          <a href="/about" class:list={[
+          <a href={withBase('/about')} class:list={[
             "flex items-center gap-2 p-2 rounded-lg transition-colors",
             isActiveLink('/about') 
               ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
@@ -93,7 +100,7 @@ function isActiveCategory(categoryName: string): boolean {
           </a>
         </li>
         <li>
-          <a href="/blog" class:list={[
+          <a href={withBase('/blog')} class:list={[
             "flex items-center gap-2 p-2 rounded-lg transition-colors",
             isActiveLink('/blog') 
               ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
@@ -107,7 +114,7 @@ function isActiveCategory(categoryName: string): boolean {
           </a>
         </li>
         <li>
-          <a href="/projects" class:list={[
+          <a href={withBase('/projects')} class:list={[
             "flex items-center gap-2 p-2 rounded-lg transition-colors",
             isActiveLink('/projects') 
               ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
@@ -130,7 +137,7 @@ function isActiveCategory(categoryName: string): boolean {
           {sortedCategories.map(({ name, count }) => (
             <li>
               <a 
-                href={`/categories/${name.toLowerCase().replace(/\s+/g, '-')}`} 
+                href={withBase(`/categories/${name.toLowerCase().replace(/\s+/g, '-')}`)} 
                 class:list={[
                   "block p-2 rounded-lg transition-colors flex justify-between items-center",
                   isActiveCategory(name)
