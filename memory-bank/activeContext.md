@@ -11,8 +11,7 @@
 **Configuration Updates:**
 - ✅ Fixed Table of Contents navigation functionality for Chinese blog posts
 - ✅ Updated author and location information in site configuration
-  - Author: Gerrad Zhang (confirmed)
-  - Location: Updated from "Beijing, China" to "Wuhan, China"
+  - Author: Tetiana Tsakun
 - ✅ Enhanced slug generation for Chinese characters in headings
 - ✅ Added smooth scroll behavior to TOC links
 

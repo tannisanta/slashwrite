@@ -75,6 +75,20 @@ function isActiveCategory(categoryName: string): boolean {
           </a>
         </li>
         <li>
+          <a href="/about" class:list={[
+            "flex items-center gap-2 p-2 rounded-lg transition-colors",
+            isActiveLink('/about') 
+              ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
+              : "hover:bg-slate-100 dark:hover:bg-slate-800"
+          ]}>
+            <Icon name="user" class:list={[
+              "w-5 h-5",
+              isActiveLink('/about') ? "text-indigo-600 dark:text-indigo-400" : ""
+            ]} />
+            <span>About</span>
+          </a>
+        </li>
+        <li>
           <a href="/blog" class:list={[
             "flex items-center gap-2 p-2 rounded-lg transition-colors",
             isActiveLink('/blog') 
@@ -100,20 +114,6 @@ function isActiveCategory(categoryName: string): boolean {
               isActiveLink('/projects') ? "text-indigo-600 dark:text-indigo-400" : ""
             ]} />
             <span>Projects</span>
-          </a>
-        </li>
-        <li>
-          <a href="/about" class:list={[
-            "flex items-center gap-2 p-2 rounded-lg transition-colors",
-            isActiveLink('/about') 
-              ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
-              : "hover:bg-slate-100 dark:hover:bg-slate-800"
-          ]}>
-            <Icon name="user" class:list={[
-              "w-5 h-5",
-              isActiveLink('/about') ? "text-indigo-600 dark:text-indigo-400" : ""
-            ]} />
-            <span>About</span>
           </a>
         </li>
       </ul>

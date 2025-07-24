@@ -125,18 +125,11 @@ const isReadingTimeEnabled = isFeatureEnabled('readingTime');
         </button>
           <div id="shareMenu" class="hidden absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-slate-800 ring-1 ring-black ring-opacity-5 z-10">
             <div class="py-1" role="menu" aria-orientation="vertical">
-              <button class="share-twitter w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center">
-                <Icon name="twitter" class="w-4 h-4 mr-2" /> Twitter | X
-              </button>
               <button class="share-facebook w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center">
                 <Icon name="facebook" class="w-4 h-4 mr-2" /> Facebook
               </button>
               <button class="share-linkedin w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center">
                 <Icon name="linkedin" class="w-4 h-4 mr-2" /> LinkedIn
-              </button>
-              <button class="share-wechat w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center">
-                <Icon name="wechat" class="w-4 h-4 mr-2" />
-                WeChat
               </button>
               <button class="copy-link w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center">
                 <Icon name="link" class="w-4 h-4 mr-2" /> Copy Link
@@ -318,12 +311,6 @@ const isReadingTimeEnabled = isFeatureEnabled('readingTime');
       event.stopPropagation();
       // Toggle share menu display/hidden
       shareMenu.classList.toggle('hidden');
-    });
-
-    // Click Twitter share
-    document.querySelector('.share-twitter').addEventListener('click', () => {
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(pageTitle)}&url=${encodeURIComponent(currentUrl)}`, '_blank');
-      shareMenu.classList.add('hidden');
     });
 
     // Click Facebook share

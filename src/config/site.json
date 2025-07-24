@@ -8,7 +8,7 @@
     "email": "tannisanta@gmail.com",
     "logo": "/logo.svg",
     "homeTitle": "In writing and beyond",
-    "homeSubtitle": "Welcome to my space. Here I share my work as a technical writer and my creative side—watercolor, photography, and other projects",
+    "homeSubtitle": "Welcome to my space. Here I share my passion for technical writing, watercolor, and capturing moments through photography.",
     "blogSubtitle": "Insights, experiences, and knowledge sharing on technology, learning, creativity, and everything in between",
     "projectSubtitle": "A curated showcase of my personal projects, writing, thoughts, work, and creativity",
     "brandTitle": "Tetiana Tsakun"
@@ -30,7 +30,6 @@
   },
   "seo": {
     "openGraph": {
-      "twitterCreator": "@yourusername",
       "defaultImageWidth": 1200,
       "defaultImageHeight": 630
     },
