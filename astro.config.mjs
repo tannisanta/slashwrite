@@ -11,11 +11,14 @@ import rehypeSlug from 'rehype-slug';
 import remarkToc from 'remark-toc';
 import { getSiteConfig } from './src/utils/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'astro/config';
+
+const isGitHub = process.env.GITHUB_ACTIONS === 'true';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://tannisanta.github.io/inwriting',
-  base: '/',
+  base: isGitHub ? '/inwriting/' : '/',
   output: 'static',
   integrations: [
     tailwind(),
