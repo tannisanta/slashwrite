@@ -37,8 +37,12 @@ const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL || '/inwriting/'; // or from your config
 function isActiveLink(path: string) {
   const currentPath = Astro.url.pathname;
-  // Adjust path with base if needed
-  return currentPath === (base + path).replace(/\/\/+/g, '/');
+
+  // Normalize combined path to avoid double slashes
+  const fullPath = (base + path).replace(/\/+/g, '/');
+
+  // Return true if current path exactly matches the full path
+  return currentPath === fullPath;
 }
 
 // Helper function to determine if a category is active
