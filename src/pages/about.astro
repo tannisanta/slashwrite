@@ -13,13 +13,13 @@ const projectTags = [...new Set(allProjects.flatMap(project => project.data.tags
 const existingTags = [...new Set([...blogTags, ...projectTags])].map(tag => tag.toLowerCase());
 
 // Function to check if a skill has a matching tag
-function hasMatchingTag(skill) {
+function hasMatchingTag(skill: string) {
   const normalizedSkill = skill.toLowerCase().replace(/\s+/g, '-');
   return existingTags.includes(normalizedSkill) || existingTags.includes(skill.toLowerCase());
 }
 
 // Function to create a tag URL
-function getTagUrl(skill) {
+function getTagUrl(skill: string) {
   const normalizedSkill = skill.toLowerCase().replace(/\s+/g, '-');
   return `/tags/${normalizedSkill}`;
 }

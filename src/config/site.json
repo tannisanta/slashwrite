@@ -1,21 +1,21 @@
 {
   "site": {
-    "title": "In writing",
+    "title": "SlashWrite",
     "description": "Personal portfolio website combining blog, professional showcase capabilities, and my hobbies",
-    "url": "https://tannisanta.github.io/inwriting/",
+    "url": "https://tannisanta.github.io/SlashWrite/",
     "author": "Tetiana Tsakun",
     "location": "Warsaw, Poland",
-    "email": "tetiana.tsakun@gmail.com",
+    "email": "tannisanta@gmail.com",
     "logo": "/logo.svg",
-    "homeTitle": "In writing and beyond",
-    "homeSubtitle": "Welcome to my space. Here I share my passion for technical writing, watercolor, and capturing moments through photography.",
+    "homeTitle": "SlashWrite",
+    "homeSubtitle": "Welcome to my space, where I explore technical writing alongside my passion for watercolor and photography. SlashWrite reflects what technical writers really do: investigating, testing, questioning, and connecting the dots before writing. Documentation doesn’t start with words — the slash represents the essential effort behind every page.",
     "blogSubtitle": "Insights, experiences, and knowledge sharing on technology, learning, creativity, and everything in between",
     "projectSubtitle": "A curated showcase of my personal projects, writing, thoughts, work, and creativity",
     "brandTitle": "Tetiana Tsakun"
   },
   "giscus": {
     "enabled": true,
-    "repo": "inwriting",
+    "repo": "SlashWrite",
     "repoId": "R_kgDOO_1i3A",
     "category": "General",
     "categoryId": "DIC_kwDOOl9Jt84Cp3pA",
