@@ -34,11 +34,11 @@ const socialConfig = getSocialConfig();
 const currentPath = Astro.url.pathname;
 
 // Helper function to determine if a link is active
-function isActiveLink(linkPath: string): boolean {
-  if (linkPath === '/') {
-    return currentPath === '/';
-  }
-  return currentPath.startsWith(linkPath);
+const base = import.meta.env.BASE_URL || '/inwriting/'; // or from your config
+function isActiveLink(path: string) {
+  const currentPath = Astro.url.pathname;
+  // Adjust path with base if needed
+  return currentPath === (base + path).replace(/\/\/+/g, '/');
 }
 
 // Helper function to determine if a category is active
