@@ -27,7 +27,7 @@ graph TB
     end
     
     subgraph "Content Layer"
-        G[MDX Content] --> H[Blog Posts]
+        G[MDX Content] --> H[Blog posts]
         G --> I[Project Pages]
         J[JSON Config] --> K[Site Settings]
         J --> L[Navigation]

@@ -3,7 +3,7 @@ import ThemeToggle from './ThemeToggle.astro';
 import Icon from './Icon.astro';
 import { getCollection } from 'astro:content';
 import { getSiteConfig, getSocialConfig } from '@utils/config';
-import { withBase } from '../utils/withBase';
+import { withBase }from 'utils/withBase.ts';
 
 // Get all blog posts
 const blogPosts = await getCollection('blog', ({ data }) => {
@@ -61,7 +61,7 @@ function isActiveCategory(categoryName: string): boolean {
 
 <nav class:list={["bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-full p-4 flex flex-col", className]}>
   <div class="py-4">
-    <a href="/" class="flex items-center gap-2 text-xl font-bold">
+    <a href={withBase('/')} class="flex items-center gap-2 text-xl font-bold">
       <Icon name="book" class="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
       <span>{siteConfig.brandTitle}</span>
     </a>

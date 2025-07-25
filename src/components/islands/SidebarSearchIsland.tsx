@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import type { FormEvent } from 'react';
+import { withBase }from '../../utils/withBase.ts';
 
 interface SidebarSearchIslandProps {
   placeholder?: string;
@@ -20,7 +21,7 @@ function SidebarSearchIsland({ placeholder = "Search..." }: SidebarSearchIslandP
     if (!searchQuery.trim()) return;
     
     // Redirect to search page
-    window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+    window.location.href = withBase(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
   }, [searchQuery]);
   
   // Handle input change - Use useCallback to cache function

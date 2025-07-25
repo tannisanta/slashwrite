@@ -32,7 +32,7 @@ This blog platform combines modern web technologies to create a performant, feat
 
 ## 📚 Content Management
 
-### Blog Posts
+### Blog posts
 Blog posts are stored in `src/content/blog/` as MDX files. Each post should follow this structure:
 
 ```md

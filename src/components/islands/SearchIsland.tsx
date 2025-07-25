@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback, useMemo } from 'react';
 // Import types only for Fuse.js which will be dynamically loaded at runtime
 import type { FuseResult, IFuseOptions } from 'fuse.js';
+import { withBase }from 'utils/withBase.ts';
 
 interface SearchArticle {
   title: string;
@@ -41,7 +42,7 @@ const SearchResultCard = React.memo(({ post, formatDate }: {
         {/* Title area */}
         <div className="mb-3">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors line-clamp-2">
-            <a href={`/blog/${post.slug}`}>{post.title}</a>
+            <a href={withBase(`/blog/${post.slug}`)}>{post.title}</a>
           </h2>
         </div>
         
@@ -58,7 +59,7 @@ const SearchResultCard = React.memo(({ post, formatDate }: {
             {post.tags && post.tags.slice(0, 3).map(tag => (
               <a
                 key={tag}
-                href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                href={withBase(`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`)}
                 className="text-xs px-2 py-0.5 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
               >
                 {tag}

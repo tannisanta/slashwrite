@@ -3,7 +3,7 @@ import ThreeColumnLayout from '@layouts/ThreeColumnLayout.astro';
 import ArticleCard from '@components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
 import { getSiteConfig } from '@utils/config';
-import { withBase } from '../utils/withBase';
+import { withBase } from '../utils/withBase.ts';
 
 // Get all blog posts
 const allPosts = await getCollection('blog', ({ data }) => {

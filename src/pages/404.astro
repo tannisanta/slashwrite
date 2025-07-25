@@ -1,7 +1,7 @@
 ---
 import ThreeColumnLayout from '@layouts/ThreeColumnLayout.astro';
 import { getSiteConfig } from '@utils/config';
-import { withBase } from '../utils/withBase';
+import { withBase }from 'utils/withBase.ts';
 
 const siteConfig = getSiteConfig();
 ---
@@ -24,25 +24,25 @@ const siteConfig = getSiteConfig();
       <p>Looking for something specific? Try these popular links:</p>
     <div class="w-full max-w-md space-y-4">
       <a 
-        href="/" 
-        class="block w-1/2 mx-auto bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg text-center transition-colors"
-      >
-        Homepage
-      </a>
-      
-      <a 
-        href="/blog" 
-        class="block w-1/2 mx-auto bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-lg text-center transition-colors border border-slate-700"
-      >
-        Blog
-      </a>
-      
-      <a 
-        href="/categories" 
-        class="block w-1/2 mx-auto bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-lg text-center transition-colors border border-slate-700"
-      >
-        Categories
-      </a>
+      href={withBase('/')} 
+      class="block w-1/2 mx-auto bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg text-center transition-colors"
+    >
+      Homepage
+    </a>
+    
+    <a 
+      href={withBase('/blog')} 
+      class="block w-1/2 mx-auto bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-lg text-center transition-colors border border-slate-700"
+    >
+      Blog
+    </a>
+    
+    <a 
+      href={withBase('/categories')} 
+      class="block w-1/2 mx-auto bg-slate-800 hover:bg-slate-700 text-white py-3 rounded-lg text-center transition-colors border border-slate-700"
+    >
+      Categories
+    </a>
     </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import ThreeColumnLayout from '@layouts/ThreeColumnLayout.astro';
+import { withBase } from '../../utils/withBase.ts';
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
@@ -49,7 +50,7 @@ const hasUpdated = updatedDate && updatedDate > pubDate;
       <div class="flex flex-wrap gap-2 mb-4">
         {tags && tags.map(tag => (
           <a
-            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+            href={withBase(`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`)}
             class="text-sm px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors"
           >
             {tag}
@@ -113,7 +114,7 @@ const hasUpdated = updatedDate && updatedDate > pubDate;
     
     <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
       <div class="flex justify-between">
-        <a href="/projects" class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+        <a href={withBase('/projects')} class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
