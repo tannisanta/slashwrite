@@ -1,4 +1,6 @@
 ---
+import { withBase }from '../utils/withBase.ts';
+
 export interface Props {
   title: string;
   description: string;
@@ -44,7 +46,7 @@ const hasUpdated = updatedDate && updatedDate > pubDate;
         <div class="flex flex-wrap gap-1.5 mb-3">
           {tags.map(tag => (
             <a 
-              href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+            href={withBase(`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`)}
               class="text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400"
             >
               #{tag}
