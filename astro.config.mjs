@@ -17,8 +17,8 @@ const isGitHub = process.env.GITHUB_ACTIONS === 'true';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tannisanta.github.io/SlashWrite',
-  base: isGitHub ? '/SlashWrite/' : '/',
+  site: 'https://tannisanta.github.io/slashwrite',
+  base: isGitHub ? '/slashwrite/' : '/',
   output: 'static',
   integrations: [
     tailwind(),
