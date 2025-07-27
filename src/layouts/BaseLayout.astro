@@ -33,8 +33,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url);
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={withBase('/favicon.png')} />
-    <link rel="apple-touch-icon" href={withBase('/favicon.png')} />
+    <link rel="icon" type="image/png" href={withBase('../favicon.png')} />
+    <link rel="apple-touch-icon" href={withBase('stashwrite/favicon.png')} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
