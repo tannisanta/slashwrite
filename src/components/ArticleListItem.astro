@@ -36,7 +36,7 @@ const hasUpdated = updatedDate && updatedDate > pubDate;
     <div>
       <!-- Title -->
       <h2 class="text-xl font-bold mb-2 leading-snug">
-        <a href={`/blog/${slug}`} class="hover:text-indigo-600 dark:hover:text-indigo-400">
+        <a href={withBase(`/blog/${slug}`)} class="hover:text-indigo-600 dark:hover:text-indigo-400">
           {title}
         </a>
       </h2>
@@ -67,7 +67,7 @@ const hasUpdated = updatedDate && updatedDate > pubDate;
         </span>
         
         <a 
-          href={`/blog/${slug}`}
+          href={withBase(`/blog/${slug}`)}
           class="text-indigo-600 dark:text-indigo-400 hover:underline"
         >
           Read more →
