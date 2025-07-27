@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import ThreeColumnLayout from '@layouts/ThreeColumnLayout.astro';
+import { withBase } from '../../utils/withBase.ts';
+
+export async function getStaticPaths() {
+  const canvasEntries = await getCollection('canvas');
+  return canvasEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, description, pubDate, updatedDate, heroImage, tags } = entry.data;
+
+const formattedDate = pubDate.toLocaleDateString('en-us', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+
+const hasUpdated = updatedDate && updatedDate > pubDate;
+const updatedFormatted = updatedDate?.toLocaleDateString('en-us', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+
+<ThreeColumnLayout title={`${title} | Canvas`} description={description} image={heroImage}>
+  <article class="mx-auto">
+    <header class="mb-8">
+      {heroImage && (
+        <img src={heroImage} alt={title} class="w-full h-64 object-cover rounded-lg mb-6" />
+      )}
+
+      <div class="flex flex-wrap gap-2 mb-4">
+        {tags && tags.map(tag => (
+          <a href={withBase(`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`)} class="text-sm px-3 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full">
+            {tag}
+          </a>
+        ))}
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4">{title}</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-4">{description}</p>
+      <div class="text-slate-600 dark:text-slate-400 text-sm">
+        Created: <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        {hasUpdated && <> (Updated: <time datetime={updatedDate.toISOString()}>{updatedFormatted}</time>)</>}
+      </div>
+    </header>
+
+    <div class="prose dark:prose-invert prose-lg prose-slate max-w-none">
+      <Content />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+      <a href={withBase('/canvas')} class="text-indigo-600 dark:text-indigo-400 hover:underline flex items-center">
+        ← Back to Canvas
+      </a>
+    </div>
+  </article>
+</ThreeColumnLayout>

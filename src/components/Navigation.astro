@@ -41,6 +41,7 @@ const activeLinks = {
   '/about': isActiveLink('/about'),
   '/blog': isActiveLink('/blog'),
   '/projects': isActiveLink('/projects'),
+  '/canvas': isActiveLink('/canvas'),
 };
 function isActiveLink(path: string) {
   const currentPath = Astro.url.pathname;
@@ -126,6 +127,20 @@ function isActiveCategory(categoryName: string): boolean {
             ]} />
             <span>Projects</span>
           </a>
+          <li>
+            <a href={withBase('/canvas')} class:list={[
+              "flex items-center gap-2 p-2 rounded-lg transition-colors",
+              isActiveLink('/canvas') 
+                ? "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium" 
+                : "hover:bg-slate-100 dark:hover:bg-slate-800"
+            ]}>
+              <Icon name="canvas" class:list={[
+                "w-5 h-6",
+                isActiveLink('/canvas') ? "text-indigo-600 dark:text-indigo-400" : ""
+              ]} />
+              <span>Canvas</span>
+            </a>
+          </li>
         </li>
       </ul>
     </div>

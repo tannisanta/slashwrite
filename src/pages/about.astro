@@ -6,11 +6,14 @@ import { formatPageTitle, getSiteConfig, getSocialConfig } from '@utils/config';
 // Get all blog posts and projects to extract existing tags
 const allPosts = await getCollection('blog');
 const allProjects = await getCollection('projects');
+const allCanvas = await getCollection('canvas');
+
 
 // Extract all existing tags
 const blogTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
 const projectTags = [...new Set(allProjects.flatMap(project => project.data.tags || []))];
-const existingTags = [...new Set([...blogTags, ...projectTags])].map(tag => tag.toLowerCase());
+const canvasTags = [...new Set(allCanvas.flatMap(item => item.data.tags || []))];
+const existingTags = [...new Set([...blogTags, ...projectTags, ...canvasTags])].map(tag => tag.toLowerCase());
 
 // Function to check if a skill has a matching tag
 function hasMatchingTag(skill: string) {

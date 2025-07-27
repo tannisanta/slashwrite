@@ -12,19 +12,33 @@ export default function ThemeToggleIsland({ className = '', iconSize = 24 }: The
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
 
+  function applyTheme(t: 'light' | 'dark') {
+    document.documentElement.classList.toggle('dark', t === 'dark');
+    document.documentElement.classList.toggle('light', t === 'light');
+  }
+
   // Initialize theme
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    setTheme(initialTheme);
-    setMounted(true);
-    
-    if (initialTheme === 'dark') {
-      document.documentElement.classList.add('dark');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      setTheme(savedTheme);
+      applyTheme(savedTheme);
+      setMounted(true);
     } else {
-      document.documentElement.classList.remove('dark');
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const systemTheme = mediaQuery.matches ? 'dark' : 'light';
+      setTheme(systemTheme);
+      applyTheme(systemTheme);
+
+      const handler = (e: MediaQueryListEvent) => {
+        setTheme(e.matches ? 'dark' : 'light');
+        applyTheme(e.matches ? 'dark' : 'light');
+      };
+      mediaQuery.addEventListener('change', handler);
+
+      setMounted(true);
+
+      return () => mediaQuery.removeEventListener('change', handler);
     }
   }, []);
 
@@ -32,21 +46,9 @@ export default function ThemeToggleIsland({ className = '', iconSize = 24 }: The
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-    }
-    
+    applyTheme(newTheme);
     localStorage.setItem('theme', newTheme);
-    
-    // Dispatch custom event to notify other components of theme change
-    document.dispatchEvent(
-      new CustomEvent('theme-change', { detail: { theme: newTheme } })
-    );
+    document.dispatchEvent(new CustomEvent('theme-change', { detail: { theme: newTheme } }));
   };
 
   // Don't render until mounted to avoid hydration issues

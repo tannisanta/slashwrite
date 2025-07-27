@@ -19,6 +19,7 @@ export interface SiteConfig {
     homeSubtitle: string;
     blogSubtitle: string;
     projectSubtitle: string;
+    canvasSubtitle: string;
     brandTitle: string;
   };
   giscus: {

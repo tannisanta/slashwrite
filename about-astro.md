@@ -86,6 +86,7 @@ src/
 ├── content/        # Blog posts and content collections
 │   ├── blog/      # Blog posts (MDX)
 │   └── projects/  # Project showcases
+│   └── canvas/   # Creative showcases
 ├── layouts/        # Page layouts
 ├── pages/         # Route pages
 │   ├── blog/      # Blog post pages

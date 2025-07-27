@@ -12,11 +12,15 @@ export async function getStaticPaths() {
   
   // Get all projects
   const allProjects = await getCollection('projects');
+
+  // Get all canvas items
+  const allCanvas = await getCollection('canvas');
   
   // Get unique tags from both blogs and projects
   const blogTags = [...new Set(allPosts.flatMap(post => post.data.tags))];
   const projectTags = [...new Set(allProjects.flatMap(project => project.data.tags))];
-  const allTags = [...new Set([...blogTags, ...projectTags])];
+  const canvasTags = [...new Set(allCanvas.flatMap(item => item.data.tags))];
+  const allTags = [...new Set([...blogTags, ...projectTags, ...canvasTags])];
   
   // Create a path for each tag
   return allTags.map(tag => {
@@ -28,19 +32,24 @@ export async function getStaticPaths() {
     const filteredProjects = allProjects.filter(project =>
       project.data.tags.includes(tag)
     );
+
+    const filteredCanvas = allCanvas.filter(item => 
+      item.data.tags.includes(tag)
+    );
     
     return {
       params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
       props: { 
         tag, 
         posts: filteredPosts, 
-        projects: filteredProjects 
+        projects: filteredProjects,
+        canvas: filteredCanvas 
       },
     };
   });
 }
 
-const { tag, posts, projects } = Astro.props;
+const { tag, posts, projects, canvas } = Astro.props;
 
 // Sort posts by date in descending order
 const sortedPosts = posts.sort(
@@ -49,6 +58,10 @@ const sortedPosts = posts.sort(
 
 // Sort projects by date in descending order
 const sortedProjects = projects.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const sortedCanvas = canvas.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
@@ -136,6 +149,47 @@ const totalItems = sortedPosts.length + sortedProjects.length;
       </div>
     </section>
   )}
+
+{sortedCanvas.length > 0 && (
+  <section>
+    <h2 class="text-2xl font-bold mb-6">Canvas</h2>
+    <div class="grid gap-6 md:grid-cols-2">
+      {sortedCanvas.map(item => (
+        <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          {item.data.heroImage && (
+            <img 
+              src={item.data.heroImage}
+              alt={item.data.title}
+              class="w-full h-48 object-cover"
+              width="600"
+              height="300"
+            />
+          )}
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">
+              <a href={withBase(`/canvas/${item.slug}`)} class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                {item.data.title}
+              </a>
+            </h3>
+            <p class="text-slate-600 dark:text-slate-300 mb-4">
+              {item.data.description}
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {item.data.tags.map(t => (
+                <a 
+                  href={withBase(`/tags/${t.toLowerCase().replace(/\s+/g, '-')}`)}
+                  class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+                >
+                  {t}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
 
   {totalItems === 0 && (
     <div class="text-center py-12">

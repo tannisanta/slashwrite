@@ -1,16 +1,17 @@
 {
   "site": {
     "title": "SlashWrite",
-    "description": "Personal portfolio website combining blog, professional showcase capabilities, and my hobbies",
+    "description": "Personal portfolio site blending blog posts, professional work, and creative hobbies",
     "url": "https://tannisanta.github.io/slashwrite/",
     "author": "Tetiana Tsakun",
     "location": "Warsaw, Poland",
     "email": "tannisanta@gmail.com",
     "logo": "/logo.svg",
     "homeTitle": "SlashWrite",
-    "homeSubtitle": "Welcome to my space, where I explore technical writing along with my passion for watercolor and photography. The site title reflects what technical writers actually do — investigate, test, question, and connect the dots before writing. Documentation doesn’t start with words. The slash represents the essential effort behind every piece of content.",
+    "homeSubtitle": "Welcome to my space, where I explore technical writing alongside my creative hobbies. The site title reflects the effort behind every piece of content and what technical writers do — investigate, gather information, analyze, test, question, and connect the dots before writing.",
     "blogSubtitle": "Insights, experiences, and knowledge sharing on technology, learning, creativity, and everything in between",
     "projectSubtitle": "A curated showcase of my personal projects, writing, thoughts, work, and creativity",
+    "canvasSubtitle": "Here I share my creative journey that inspires me and helps me keep the creative spark glowing",
     "brandTitle": "Tetiana Tsakun"
   },
   "giscus": {

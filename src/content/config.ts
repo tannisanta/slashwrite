@@ -36,7 +36,22 @@ const projectsCollection = defineCollection({
   })
 });
 
+const canvasCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    updatedDate: z.date().optional(),
+    heroImage: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+    // Add any other fields you want here
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
-  projects: projectsCollection
+  projects: projectsCollection,
+  canvas: canvasCollection, 
 };

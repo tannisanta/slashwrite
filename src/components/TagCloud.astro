@@ -17,6 +17,15 @@ try {
   projects = [];
 }
 
+// Get all canvas items
+let canvas = [];
+try {
+  canvas = await getCollection('canvas');
+} catch (error) {
+  console.error('Error loading canvas collection:', error);
+  canvas = [];
+}
+
 // Extract tags from blog posts
 const blogTagCounts = blogPosts.reduce((acc, post) => {
   post.data.tags?.forEach(tag => {
@@ -33,9 +42,20 @@ const projectTagCounts = projects.reduce((acc, project) => {
   return acc;
 }, {} as Record<string, number>);
 
+// Extract tags from canvas
+const canvasTagCounts = canvas.reduce((acc, item) => {
+  item.data.tags?.forEach(tag => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {} as Record<string, number>);
+
 // Merge blog and project tag counts
 const combinedTagCounts = { ...blogTagCounts };
 Object.entries(projectTagCounts).forEach(([tag, count]) => {
+  combinedTagCounts[tag] = (combinedTagCounts[tag] || 0) + count;
+});
+Object.entries(canvasTagCounts).forEach(([tag, count]) => {
   combinedTagCounts[tag] = (combinedTagCounts[tag] || 0) + count;
 });
 

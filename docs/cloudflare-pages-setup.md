@@ -108,6 +108,7 @@ Create `public/_redirects` file for SPA and SEO:
 /projects/* /index.html 200
 /categories/* /index.html 200
 /tags/* /index.html 200
+/canvas/* /index.html 200
 
 # 404 handling
 /* /404.html 404
