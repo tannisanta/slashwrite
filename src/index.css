@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+blockquote {
+    border-left: none;
+    quotes: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+  
+  blockquote::before,
+  blockquote::after {
+    content: none;
+  }

@@ -53,7 +53,7 @@ export function calculateReadingTime(content: string, wordsPerMinute = 200) {
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // Remove images
     .replace(/#/g, '') // Remove heading markers
     .replace(/\*\*|\*|__|_/g, '') // Remove bold and italic markers
-    .replace(/>\s?/g, '') // Remove blockquotes
+    .replace(/^>\s?/gm, '') // Remove blockquotes
 
   // Count words
   const words = cleanText.trim().split(/\s+/).length;
