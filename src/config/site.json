@@ -16,9 +16,9 @@
   },
   "giscus": {
     "enabled": true,
-    "repo": "slashwrite",
+    "repo": "tannisanta/slashwrite",
     "repoId": "R_kgDOO_1i3A",
-    "category": "General",
+    "category": "general",
     "categoryId": "DIC_kwDOOl9Jt84Cp3pA",
     "mapping": "pathname",
     "strict": "0",
